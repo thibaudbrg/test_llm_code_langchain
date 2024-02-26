@@ -1,0 +1,36 @@
+[tool.poetry]
+name = "my-app"
+version = "0.1.0"
+description = ""
+authors = ["Thibaud Bourgeois <thibaud.bourgeois25@gmail.com>"]
+readme = "README.md"
+
+packages = [{ include = "app" }]
+
+
+[tool.poetry.dependencies]
+python = ">=3.11,<3.12"
+uvicorn = "^0.23.2"
+langserve = {extras = ["server"], version = ">=0.0.30"}
+langchain-openai = "^0.0.7"
+lxml = "^5.1.0"
+pypdf2 = "^3.0.1"
+unstructured = { version = "^0.12.4", python = ">=3.9,<3.12" }
+pysqlite3-binary = "^0.5.2.post3"
+pydantic = "1.10.13"
+
+# Local packages
+rag-chroma = {path = "packages/rag-chroma", develop = true}
+rag-conversation = {path = "packages/rag-conversation", develop = true}
+rag-multi-query = {path = "packages/rag-multi-query", develop = true}
+rag-fusion = {path = "packages/rag-fusion", develop = true}
+ipykernel = "^6.29.2"
+jupyter = "^1.0.0"
+
+[tool.poetry.dev-dependencies]
+langchain-cli = ">=0.0.15"
+pytest = "^8.0.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
